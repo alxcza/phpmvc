@@ -31,8 +31,12 @@
 
     //il faudra modifier le fichier article-acceuil.php pour qu'il utilise les données de la BDD et pas du HTML brut
 
-    include 'article-accueil.php'; 
-    include 'article-accueil.php';
+    foreach($this->data['articles'] as $article)
+    {
+      // echo $article->title()."<br/>";
+      include 'article-accueil.php'; 
+    }
+
 
     ?>
 

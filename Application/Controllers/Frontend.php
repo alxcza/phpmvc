@@ -30,9 +30,17 @@ Class Frontend {
         //À compléter
         //On doit récupérer les articles depuis la base de données et les initialiser
         //puis les passer à la view
-        /***********************************************/
-        $posts = ['un article', 'un autre article']; //ceci devrait être remplacer par des articles récupérés depuis la base de données
-        $this->view->setVar('posts', $posts);
+
+        $article_repository = new \Application\Models\ArticleRepository(); //on instancie un repository
+        $donnees_posts = $article_repository->all(); //on récupère les données depuis la base de données
+
+        $posts_array = array(); 
+        foreach($donnees_posts as $donnees_post) {
+          $posts_array[] = new \Application\Models\Article($donnees_post);
+        } 
+        // print_r($posts_array[0]->title());
+        // die;
+        $this->view->setVar('articles', $posts_array);
 
         //On donne le nom de la vue que l'on veut appeler
         $this->view->setVar('view', 'frontend/accueil');
