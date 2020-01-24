@@ -17,7 +17,7 @@ class ArticleRepository extends Repository
     try {
 
       $statement->execute();
-    } catch (PDOException $e) {
+    } catch (\PDOException $e) {
       echo "Statement failed: " . $e->getMessage();
       return false;
     }
@@ -41,14 +41,14 @@ class ArticleRepository extends Repository
 
       $statement->execute();
       
-    } catch (PDOException $e) {
+    } catch (\PDOException $e) {
       echo "Statement failed: " . $e->getMessage();
       return false;
     }
-    // var_dump($statement->fetchAll());
-    // // print_r($statement->fetchAll());
+    // var_dump($statement->fetchAll(\PDO::FETCH_ASSOC));
     // die;
 
-    return $statement->fetchAll();
+    // \PDO::FETCH_ASSOC demande un résultat sous forme de tableau associatif
+    return $statement->fetchAll(\PDO::FETCH_ASSOC); 
   }
 }
