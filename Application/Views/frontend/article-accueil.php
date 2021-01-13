@@ -1,6 +1,6 @@
 <div class="blog-post">
     <h3><?= $article->title() ?> <small>16 Janvier 2019</small></h3>
-    <!-- <img class="thumbnail" src="<?php echo "/public/images/07_route_glace.png"; ?>"style="width: 100%;"> -->
+    <img class="thumbnail" src="<?php echo "/public/images/07_route_glace.png"; ?>"style="width: 100%;">
     <p><?= $article->content() ?></p>
     <div class="callout">
     <ul class="menu simple">
